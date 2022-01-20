@@ -1,32 +1,22 @@
 /*
-Após obter, via teclado, o valor do prêmio, os 20 números sorteados (digitados em ordem crescente) e a quantidade de cartões (máximo de 100 cartões),
-serão introduzidos os dados de cada cartão.
-Para cada cartão, serão lidos os números apostados (valores do tipo inteiro) digitados em ordem crescente.
-Importante: em um único cartão são apostados, exatamente, 20 números.
-Para cada cartão vencedor, deve ser impresso o seu código identificador (o número a que corresponde na entrada de dados,
-sequencialmente numerados, o 1º. Cartão informado é o cartão 0).
-Ao final do programa, deve ser impresso o valor rateado do prêmio ou uma mensagem informando que o prêmio acumulou, caso não haja vencedores.
+ApÃ³s obter, via teclado, o valor do prÃªmio, os 20 nÃºmeros sorteados (digitados em ordem crescente) e a quantidade de cartÃµes (mÃ¡ximo de 100 cartÃµes),
+serÃ£o introduzidos os dados de cada cartÃ£o.
+Para cada cartÃ£o, serÃ£o lidos os nÃºmeros apostados (valores do tipo inteiro) digitados em ordem crescente.
+Importante: em um Ãºnico cartÃ£o sÃ£o apostados, exatamente, 20 nÃºmeros.
+Para cada cartÃ£o vencedor, deve ser impresso o seu cÃ³digo identificador (o nÃºmero a que corresponde na entrada de dados,
+sequencialmente numerados, o 1Âº. CartÃ£o informado Ã© o cartÃ£o 0).
+Ao final do programa, deve ser impresso o valor rateado do prÃªmio ou uma mensagem informando que o prÃªmio acumulou, caso nÃ£o haja vencedores.
 
-O seu programa deve, OBRIGATORIAMENTE, usar uma matriz para armazenar os números marcados em cada cartão e um vetor para os números sorteados.
+O seu programa deve, OBRIGATORIAMENTE, usar uma matriz para armazenar os nÃºmeros marcados em cada cartÃ£o e um vetor para os nÃºmeros sorteados.
 
-a)    Faça uma função para preencher os números sorteados
-b)    Faça uma função para preencher a matriz de apostas
-c)    Faça uma função para verificar e mostrar quais apostas acertaram os números sorteados
-d)    Faça uma função para mostrar o valor do prêmio para cada aposta vencedora
-e)    Faça um programa principal faça as chamadas das funções na ordem necessária para exibir uma execução como a seguir (não é necessário criar um menu):
-      (assumindo apenas 4 números, ao invés dos 20 pedidos no enunciado):
+a)    FaÃ§a uma funÃ§Ã£o para preencher os nÃºmeros sorteados
+b)    FaÃ§a uma funÃ§Ã£o para preencher a matriz de apostas
+c)    FaÃ§a uma funÃ§Ã£o para verificar e mostrar quais apostas acertaram os nÃºmeros sorteados
+d)    FaÃ§a uma funÃ§Ã£o para mostrar o valor do prÃªmio para cada aposta vencedora
+e)    FaÃ§a um programa principal faÃ§a as chamadas das funÃ§Ãµes na ordem necessÃ¡ria para exibir uma execuÃ§Ã£o como a seguir (nÃ£o Ã© necessÃ¡rio criar um menu):
+      (assumindo apenas 4 nÃºmeros, ao invÃ©s dos 20 pedidos no enunciado):
 
-Exemplo da execução do programa
-Entre com o valor do premio: 1000
-Entre com os numeros sorteados: 5 15 24 33
-Entre com a quantidade de cartoes: 3
-Entre com os numeros apostados no cartao com identificador 0: 5 15 24 33
-Entre com os numeros apostados no cartao com identificador 1: 6 12 59 60
-Entre com os numeros apostados no cartao com identificador 2: 5 15 24 33
-Cartoes vencedores: 0, 2
-Valor rateado do premio = 500.
-
-Defina os parâmetros e retornos das funções de acordo com a sua lógica. Não é permitido o uso de variáveis globais.
+Defina os parÃ¢metros e retornos das funÃ§Ãµes de acordo com a sua lÃ³gica. NÃ£o Ã© permitido o uso de variÃ¡veis globais.
 */
 
 #include <stdio.h>
@@ -38,7 +28,7 @@ int preencheSorteados (int numeros_sorteados[4])
 
     for (i=0; i<4; i++)
     {
-        printf ("Entre com o %io número sorteado: ", i+1);
+        printf ("Entre com o %io nÃºmero sorteado: ", i+1);
         scanf ("%i", &numeros_sorteados[i]);
     }
         return numeros_sorteados;
@@ -67,7 +57,7 @@ int verificaGanhadores (int cartoes, int ganhadores, int apostas[cartoes][4], in
             {
                 if (apostas[i][j] == numeros_sorteados[i])
                 {
-                    printf ("\nOs cartões ganhadores são: %i ", j+1);
+                    printf ("\nOs cartÃµes ganhadores sÃ£o: %i ", j+1);
                     ganhadores++;
                 }
             }
@@ -88,17 +78,17 @@ int main()
     printf ("-------------------------------------------------------------------\n");
     printf ("\t\t\t CONCURSO MEGASORTE\n");
     printf ("-------------------------------------------------------------------");
-    printf("\nEntre com o valor do prêmio: ");
+    printf("\nEntre com o valor do prÃªmio: ");
     scanf ("%f", &premio);
 
     preencheSorteados (numeros_sorteados);
 
     do
     {
-        printf ("Entre com a quantidade de cartões: ");
+        printf ("Entre com a quantidade de cartÃµes: ");
         scanf ("%i", &cartoes);
     if (cartoes > 100)
-        printf ("Entrada inválida! Máximo de 100 cartões.\n");
+        printf ("Entrada invÃ¡lida! MÃ¡ximo de 100 cartÃµes.\n");
     } while (cartoes > 100);
 
     preencheMatrizApostas (cartoes, apostas);
@@ -106,7 +96,7 @@ int main()
     ganhadores = calculaPremio (premio, ganhadores);
     premioRateado = calculaPremio (premio, ganhadores);
     printf ("\n-------------------------------------------------------------------");
-    printf ("\nO valor do prêmio rateado entre os ganhadores é: %f", premioRateado);
+    printf ("\nO valor do prÃªmio rateado entre os ganhadores Ã©: %f", premioRateado);
 
     return 0;
 }
